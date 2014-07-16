@@ -1,36 +1,20 @@
-require 'savon'
+require_relative 'company_info'
+require_relative 'client'
 
 module AchworksClient
   class Company
-    def initialize
-      set_company_info
-      set_client
+    def initialize(company_info = CompanyInfo.new, client = Client.new)
+      @company_info = company_info
+      @client = client
     end
 
     def valid_account?
-      response = client.call(:connection_check, message: company_info)
-      case response.body[:connection_check_response][:connection_check_result]
-      when 'SUCCESS:Valid Account' then true
-      when 'REJECTED:Invalid Account' then false
-      end
+      client.connection_check(company_info)
     end
 
     private
 
     attr_reader :company_info, :client
-
-    def set_company_info
-      @company_info = {'InpCompanyInfo' =>
-                        {'SSS' => ENV['SSS'],
-                         'LocID' => ENV['LocID'],
-                         'Company' => ENV['Company'],
-                         'CompanyKey' => ENV['CompanyKey']}
-                       }
-    end
-
-    def set_client
-      @client = Savon.client(wsdl: 'wsdl.xml')
-    end
 
   end
 end
