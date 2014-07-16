@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module AchworksClient
   describe Company do
-    describe '#valid_account?' do
+    describe '#valid_account?', :vcr do
       it 'returns true if the account is valid' do
         ENV['SSS'], ENV['LocID'], ENV['Company'], ENV['CompanyKey'] = 'TST', '9505', 'MYCOMPANY', 'SASD%!%$DGLJGWYRRDGDDUDFDESDHDD'
 

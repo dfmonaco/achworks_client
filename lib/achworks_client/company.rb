@@ -29,7 +29,7 @@ module AchworksClient
     end
 
     def set_client
-      @client = Savon.client(wsdl: 'http://tstsvr.achworks.com/dnet/achws.asmx?WSDL')
+      @client = Savon.client(wsdl: 'wsdl.xml')
     end
 
   end
