@@ -1,4 +1,5 @@
 require 'savon'
+require_relative 'trans_result'
 
 module AchworksClient
   class Client
@@ -14,15 +15,26 @@ module AchworksClient
       end
     end
 
+    def send_ach_trans_batch(company_info, ach_file)
+      message = build_message(company_info, ach_file)
+      response = client.call(:send_ach_trans_batch, message: message)
+      TransResult.new(response)
+    end
+
     private
 
     attr_reader :client
+
+    def build_message(*args)
+      args.reduce({}) do |message, arg|
+        message.merge(arg.to_hash)
+      end
+    end
 
     # let's cache the file for now
     def wsdl
       'wsdl.xml'
     end
-
   end
 end
 

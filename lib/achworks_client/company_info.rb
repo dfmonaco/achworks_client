@@ -1,21 +1,21 @@
 module AchworksClient
   class CompanyInfo
-    def initialize(info={})
-      @info = info
-    end
+    include Virtus.model
+
+    attribute :sss, String
+    attribute :loc_id, String
+    attribute :company, String
+    attribute :company_key, String
 
     def to_hash
       {'InpCompanyInfo' =>
-       {'SSS' => info.fetch(:sss, ENV['ACHW_SSS']),
-        'LocID' => info.fetch(:loc_id, ENV['ACHW_LocID']),
-        'Company' => info.fetch(:company, ENV['ACHW_Company']),
-        'CompanyKey' => info.fetch(:company_key, ENV['ACHW_CompanyKey'])}
+       {'SSS' => sss || ENV['ACHW_SSS'],
+        'LocID' => loc_id || ENV['ACHW_LocID'],
+        'Company' => company || ENV['ACHW_Company'],
+        'CompanyKey' => company_key || ENV['ACHW_CompanyKey']}
       }
     end
 
-    private
-
-    attr_reader :info
   end
 end
 
