@@ -1,15 +1,13 @@
 module AchworksClient
   class ACHFile
     extend Forwardable
+    include Virtus.model
+
+    attribute :company, Company
 
     def_delegators :transactions, :<<
     def_delegators :company, :sss, :loc_id
     def_delegator :transactions, :size, :count_transactions
-
-    def initialize(company)
-      @company = company
-      @transactions = []
-    end
 
     def to_hash
       {'InpACHFile' =>
@@ -34,7 +32,9 @@ module AchworksClient
     end
 
     def total_debit_records
-      0
+      transactions.count do |transaction|
+        transaction.is_a?(Debit)
+      end
     end
 
     def total_debit_amount
@@ -51,7 +51,9 @@ module AchworksClient
 
     private
 
-    attr_reader :transactions, :company
+    def transactions
+      @transactions ||= []
+    end
 
     def build_transactions_hash
       transactions.reduce({}) do |transactions_hash, transaction|

@@ -29,7 +29,7 @@ module AchworksClient
     private
 
     def ach_file
-      @ach_file ||= ACHFile.new(self)
+      @ach_file ||= ACHFile.new(company: self)
     end
 
   end

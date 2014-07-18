@@ -8,7 +8,7 @@ module AchworksClient
                                              loc_id: '9505',
                                              company: 'MYCOMPANY',
                                              company_key: 'SASD%!%$DGLJGWYRRDGDDUDFDESDHDD'})
-        ach_file = ACHFile.new(company)
+        ach_file = ACHFile.new(company: company)
 
         expected_hash = {'InpACHFile' =>
                          {'SSS' => 'TST',
@@ -28,12 +28,23 @@ module AchworksClient
 
     describe '#total_num_records' do
       it 'returns the total number of transactions' do
-        ach_file = ACHFile.new(Company.new)
+        ach_file = ACHFile.new
 
         ach_file << Credit.new
         ach_file << Debit.new
 
         expect(ach_file.total_num_records).to eq(2)
+      end
+    end
+
+    describe '#total_debit_records' do
+      it 'returns the total number of transactions' do
+        ach_file = ACHFile.new
+
+        ach_file << Debit.new
+        ach_file << Debit.new
+
+        expect(ach_file.total_debit_records).to eq(2)
       end
     end
 
