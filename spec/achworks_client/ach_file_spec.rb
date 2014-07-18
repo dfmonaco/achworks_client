@@ -43,6 +43,7 @@ module AchworksClient
 
         ach_file << Debit.new
         ach_file << Debit.new
+        ach_file << Credit.new
 
         expect(ach_file.total_debit_records).to eq(2)
       end
@@ -54,6 +55,7 @@ module AchworksClient
 
         ach_file << Debit.new(amount: 100.25)
         ach_file << Debit.new(amount: 200.50)
+        ach_file << Credit.new(amount: 1000)
 
         expect(ach_file.total_debit_amount).to eq(300.75)
       end
