@@ -37,7 +37,7 @@ module AchworksClient
     end
 
     describe '#send_transactions' do
-      it 'sends multiple transactions' do
+      it 'sends multiple transactions', :vcr do
         trans_result = company.send_transactions
 
         expect(trans_result.success?).to be(true)

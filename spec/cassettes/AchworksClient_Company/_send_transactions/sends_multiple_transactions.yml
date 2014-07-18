@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://tstsvr.achworks.com/dnet/achws.asmx
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://achworks.com/"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:SendACHTransBatch><tns:InpCompanyInfo><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:Company>MYCOMPANY</tns:Company><tns:CompanyKey>SASD%!%$DGLJGWYRRDGDDUDFDESDHDD</tns:CompanyKey></tns:InpCompanyInfo><tns:InpACHFile><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:ACHFileName></tns:ACHFileName><tns:TotalNumRecords>0</tns:TotalNumRecords><tns:TotalDebitRecords>0</tns:TotalDebitRecords><tns:TotalDebitAmount>0</tns:TotalDebitAmount><tns:TotalCreditRecords>0</tns:TotalCreditRecords><tns:TotalCreditAmount>0</tns:TotalCreditAmount><tns:ACHRecords></tns:ACHRecords></tns:InpACHFile></tns:SendACHTransBatch></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"http://achworks.com/SendACHTransBatch"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '897'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Jul 2014 18:59:47 GMT
+      Server:
+      - Apache
+      X-Aspnet-Version:
+      - 2.0.50727
+      Cache-Control:
+      - private, max-age=0
+      Content-Length:
+      - '786'
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><SendACHTransBatchResponse
+        xmlns="http://achworks.com/"><SendACHTransBatchResult><SSS>TST</SSS><LocID>9505</LocID><Status>SUCCESS</Status><Details>Transaction
+        records received and queued on 07/18/2014 11:59:48 AM Pacific Time [ACHFileName=TST9505-14071806.XML].
+        Server Processing Time:&lt;0.0001 ms</Details><CallMethod>SendACHTransBatch</CallMethod><CallDateTime>2014-07-18T11:59:48.564875-07:00</CallDateTime><FileName>TST9505-14071806.XML</FileName><TotalNumErrors>0</TotalNumErrors></SendACHTransBatchResult></SendACHTransBatchResponse></soap:Body></soap:Envelope>
+    http_version: 
+  recorded_at: Fri, 18 Jul 2014 18:59:49 GMT
+recorded_with: VCR 2.9.2
