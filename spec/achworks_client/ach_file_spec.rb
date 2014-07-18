@@ -38,7 +38,7 @@ module AchworksClient
     end
 
     describe '#total_debit_records' do
-      it 'returns the total number of transactions' do
+      it 'returns the total number of debits' do
         ach_file = ACHFile.new
 
         ach_file << Debit.new
@@ -50,7 +50,7 @@ module AchworksClient
     end
 
     describe '#total_debit_amount' do
-      it 'returns the total number of transactions' do
+      it 'returns the total debit amount' do
         ach_file = ACHFile.new
 
         ach_file << Debit.new(amount: 100.25)
@@ -58,6 +58,30 @@ module AchworksClient
         ach_file << Credit.new(amount: 1000)
 
         expect(ach_file.total_debit_amount).to eq(300.75)
+      end
+    end
+
+    describe '#total_credit_records' do
+      it 'returns the total number of credits' do
+        ach_file = ACHFile.new
+
+        ach_file << Credit.new
+        ach_file << Credit.new
+        ach_file << Debit.new
+
+        expect(ach_file.total_credit_records).to eq(2)
+      end
+    end
+
+    describe '#total_credit_amount' do
+      it 'returns the total credit amount' do
+        ach_file = ACHFile.new
+
+        ach_file << Credit.new(amount: 100.25)
+        ach_file << Credit.new(amount: 200.50)
+        ach_file << Debit.new(amount: 1000)
+
+        expect(ach_file.total_credit_amount).to eq(300.75)
       end
     end
   end

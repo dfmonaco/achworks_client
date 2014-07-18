@@ -36,17 +36,15 @@ module AchworksClient
     end
 
     def total_debit_amount
-      debits.reduce(0) do |sum, debit|
-        sum + debit.amount
-      end
+      total_amount(debits)
     end
 
     def total_credit_records
-      0
+      credits.size
     end
 
     def total_credit_amount
-      0
+      total_amount(credits)
     end
 
     private
@@ -55,9 +53,19 @@ module AchworksClient
       @transactions ||= []
     end
 
-    def debits
+    def credits
       transactions.select do |transaction|
-        transaction.is_a?(Debit)
+        transaction.is_a?(Credit)
+      end
+    end
+
+    def debits
+      transactions - credits
+    end
+
+    def total_amount(transactions)
+      transactions.reduce(0) do |sum, transaction|
+        sum + transaction.amount
       end
     end
 
