@@ -48,5 +48,15 @@ module AchworksClient
       end
     end
 
+    describe '#total_debit_amount' do
+      it 'returns the total number of transactions' do
+        ach_file = ACHFile.new
+
+        ach_file << Debit.new(amount: 100.25)
+        ach_file << Debit.new(amount: 200.50)
+
+        expect(ach_file.total_debit_amount).to eq(300.75)
+      end
+    end
   end
 end

@@ -32,13 +32,13 @@ module AchworksClient
     end
 
     def total_debit_records
-      transactions.count do |transaction|
-        transaction.is_a?(Debit)
-      end
+      debits.size
     end
 
     def total_debit_amount
-      0
+      debits.reduce(0) do |sum, debit|
+        sum + debit.amount
+      end
     end
 
     def total_credit_records
@@ -53,6 +53,12 @@ module AchworksClient
 
     def transactions
       @transactions ||= []
+    end
+
+    def debits
+      transactions.select do |transaction|
+        transaction.is_a?(Debit)
+      end
     end
 
     def build_transactions_hash
