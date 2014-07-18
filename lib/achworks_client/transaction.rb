@@ -77,4 +77,6 @@ module AchworksClient
 
   class Credit < Transaction
   end
+  class Debit < Transaction
+  end
 end

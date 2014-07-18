@@ -24,7 +24,18 @@ module AchworksClient
 
         expect(ach_file.to_hash).to eq(expected_hash)
       end
-
     end
+
+    describe '#total_num_records' do
+      it 'returns the total number of transactions' do
+        ach_file = ACHFile.new(Company.new)
+
+        ach_file << Credit.new
+        ach_file << Debit.new
+
+        expect(ach_file.total_num_records).to eq(2)
+      end
+    end
+
   end
 end

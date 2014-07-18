@@ -30,7 +30,7 @@ module AchworksClient
     end
 
     def total_num_records
-      0
+      count_transactions
     end
 
     def total_debit_records
