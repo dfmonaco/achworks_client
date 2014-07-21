@@ -15,7 +15,7 @@ module AchworksClient
                                 acct_no: 'acc_123',
                                 acct_type: 'S')
 
-        transaction = Transaction.new(company: company,
+        transaction = Credit.new(company: company,
                                       customer: customer,
                                       amount: 100.25)
 
@@ -42,7 +42,18 @@ module AchworksClient
 
         expect(transaction.to_hash).to eq(expected_hash)
       end
+    end
 
+    describe '#cust_trans_type' do
+      it 'returns C for Credits and D for Debits' do
+        credit = Credit.new
+
+        expect(credit.cust_trans_type).to eq('C')
+
+        debit = Debit.new
+
+        expect(debit.cust_trans_type).to eq('D')
+      end
     end
   end
 end

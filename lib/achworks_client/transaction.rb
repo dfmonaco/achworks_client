@@ -70,18 +70,12 @@ module AchworksClient
     end
 
     def cust_trans_type
-      'C'
+      is_a?(Credit) ? 'C' : 'D'
     end
   end
 
   class Credit < Transaction
-    def cust_trans_type
-      'C'
-    end
   end
   class Debit < Transaction
-    def cust_trans_type
-      'D'
-    end
   end
 end
