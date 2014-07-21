@@ -38,6 +38,17 @@ module AchworksClient
 
     describe '#send_transactions' do
       it 'sends multiple transactions', :vcr do
+        customer = Customer.new(id: 'cust_123',
+                                name: 'LAST NAME, FIRST NAME',
+                                routing_no: 123456789,
+                                acct_no: 'acc_123',
+                                acct_type: 'S')
+        credit = Credit.new(customer: customer, amount: 100)
+        debit = Debit.new(customer: customer, amount: 123.45)
+
+        company.add_transaction(credit)
+        company.add_transaction(debit)
+
         trans_result = company.send_transactions
 
         expect(trans_result.success?).to be(true)

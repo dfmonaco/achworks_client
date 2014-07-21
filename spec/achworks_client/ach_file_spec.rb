@@ -19,7 +19,7 @@ module AchworksClient
                           'TotalDebitAmount' => 0,
                           'TotalCreditRecords' => 0,
                           'TotalCreditAmount' => 0,
-                          'ACHRecords' => {}}
+                          'ACHRecords' => {'ACHTransRecord' => []}}
         }
 
         expect(ach_file.to_hash).to eq(expected_hash)

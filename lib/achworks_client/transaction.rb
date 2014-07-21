@@ -42,15 +42,11 @@ module AchworksClient
     end
 
     def front_end_trace
-      'abc1234567'
+      'some unique string'
     end
 
     def transaction_code
       'PPD'
-    end
-
-    def cust_trans_type
-      'C'
     end
 
     def check_or_trans_date
@@ -73,10 +69,19 @@ module AchworksClient
       1
     end
 
+    def cust_trans_type
+      'C'
+    end
   end
 
   class Credit < Transaction
+    def cust_trans_type
+      'C'
+    end
   end
   class Debit < Transaction
+    def cust_trans_type
+      'D'
+    end
   end
 end

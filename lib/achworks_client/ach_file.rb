@@ -19,7 +19,7 @@ module AchworksClient
          'TotalDebitAmount' => total_debit_amount,
          'TotalCreditRecords' => total_credit_records,
          'TotalCreditAmount' => total_credit_amount,
-         'ACHRecords' => build_transactions_hash}
+         'ACHRecords' => {'ACHTransRecord' => build_transactions_hash}}
       }
     end
 
@@ -70,8 +70,8 @@ module AchworksClient
     end
 
     def build_transactions_hash
-      transactions.reduce({}) do |transactions_hash, transaction|
-        transactions_hash.merge(transaction.to_hash)
+      transactions.map do |transaction|
+        transaction.to_hash['ACHTransRecord']
       end
     end
   end

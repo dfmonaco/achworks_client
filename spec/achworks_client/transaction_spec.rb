@@ -22,7 +22,7 @@ module AchworksClient
         expected_hash = { 'ACHTransRecord' =>
                           {'SSS' => 'TST',
                            'LocID' => '9505',
-                           'FrontEndTrace' => 'abc1234567',
+                           'FrontEndTrace' => transaction.front_end_trace,
                            'OriginatorName' => 'MYCOMPANY',
                            'TransactionCode' => 'PPD',
                            'CustTransType' => 'C',
