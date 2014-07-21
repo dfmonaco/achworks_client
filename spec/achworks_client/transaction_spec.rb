@@ -84,6 +84,22 @@ module AchworksClient
       end
     end
 
+    describe '#transaction_code' do
+      it 'defaults to PPD' do
+        code = Transaction.new.transaction_code
+
+        expect(code).to eq('PPD')
+      end
+
+      it 'can be set to other value' do
+        trans = Transaction.new(transaction_code: 'CCD')
+
+        code = trans.transaction_code
+
+        expect(code).to eq('CCD')
+      end
+    end
+
 
   end
 end

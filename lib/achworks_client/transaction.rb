@@ -6,6 +6,7 @@ module AchworksClient
     attribute :company, Company
     attribute :customer, Customer
     attribute :amount, BigDecimal
+    attribute :transaction_code, String, default: 'PPD'
 
     def_delegators :company, :sss, :loc_id
     def_delegator :company, :name, :originator_name
@@ -44,10 +45,6 @@ module AchworksClient
     def front_end_trace
       unique_value = SecureRandom.hex(4)
       @front_end_trace ||= "#{unique_value}#{loc_id}"
-    end
-
-    def transaction_code
-      'PPD'
     end
 
     def check_or_trans_date
