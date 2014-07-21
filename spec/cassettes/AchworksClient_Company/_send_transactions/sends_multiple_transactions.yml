@@ -7,11 +7,9 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://achworks.com/"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:SendACHTransBatch><tns:InpCompanyInfo><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:Company>MYCOMPANY</tns:Company><tns:CompanyKey>SASD%!%$DGLJGWYRRDGDDUDFDESDHDD</tns:CompanyKey></tns:InpCompanyInfo><tns:InpACHFile><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:ACHFileName></tns:ACHFileName><tns:TotalNumRecords>2</tns:TotalNumRecords><tns:TotalDebitRecords>1</tns:TotalDebitRecords><tns:TotalDebitAmount>0.12345E3</tns:TotalDebitAmount><tns:TotalCreditRecords>1</tns:TotalCreditRecords><tns:TotalCreditAmount>0.1E3</tns:TotalCreditAmount><tns:ACHRecords><tns:ACHTransRecord><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:FrontEndTrace>some
-        unique string</tns:FrontEndTrace><tns:OriginatorName>MYCOMPANY</tns:OriginatorName><tns:TransactionCode>PPD</tns:TransactionCode><tns:CustTransType>C</tns:CustTransType><tns:CustomerID>cust_123</tns:CustomerID><tns:CustomerName>LAST
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:SendACHTransBatch><tns:InpCompanyInfo><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:Company>MYCOMPANY</tns:Company><tns:CompanyKey>SASD%!%$DGLJGWYRRDGDDUDFDESDHDD</tns:CompanyKey></tns:InpCompanyInfo><tns:InpACHFile><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:ACHFileName></tns:ACHFileName><tns:TotalNumRecords>2</tns:TotalNumRecords><tns:TotalDebitRecords>1</tns:TotalDebitRecords><tns:TotalDebitAmount>0.12345E3</tns:TotalDebitAmount><tns:TotalCreditRecords>1</tns:TotalCreditRecords><tns:TotalCreditAmount>0.1E3</tns:TotalCreditAmount><tns:ACHRecords><tns:ACHTransRecord><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:FrontEndTrace>c8bef04e9505</tns:FrontEndTrace><tns:OriginatorName>MYCOMPANY</tns:OriginatorName><tns:TransactionCode>PPD</tns:TransactionCode><tns:CustTransType>C</tns:CustTransType><tns:CustomerID>cust_123</tns:CustomerID><tns:CustomerName>LAST
         NAME, FIRST NAME</tns:CustomerName><tns:CustomerRoutingNo>123456789</tns:CustomerRoutingNo><tns:CustomerAcctNo>acc_123</tns:CustomerAcctNo><tns:CustomerAcctType>S</tns:CustomerAcctType><tns:TransAmount>0.1E3</tns:TransAmount><tns:CheckOrCustID>cust_123</tns:CheckOrCustID><tns:CheckOrTransDate>2014-07-17</tns:CheckOrTransDate><tns:EffectiveDate>2014-07-17</tns:EffectiveDate><tns:Memo>foo
-        bar</tns:Memo><tns:OpCode>S</tns:OpCode><tns:AccountSet>1</tns:AccountSet></tns:ACHTransRecord><tns:ACHTransRecord><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:FrontEndTrace>some
-        unique string</tns:FrontEndTrace><tns:OriginatorName>MYCOMPANY</tns:OriginatorName><tns:TransactionCode>PPD</tns:TransactionCode><tns:CustTransType>D</tns:CustTransType><tns:CustomerID>cust_123</tns:CustomerID><tns:CustomerName>LAST
+        bar</tns:Memo><tns:OpCode>S</tns:OpCode><tns:AccountSet>1</tns:AccountSet></tns:ACHTransRecord><tns:ACHTransRecord><tns:SSS>TST</tns:SSS><tns:LocID>9505</tns:LocID><tns:FrontEndTrace>520bf53a9505</tns:FrontEndTrace><tns:OriginatorName>MYCOMPANY</tns:OriginatorName><tns:TransactionCode>PPD</tns:TransactionCode><tns:CustTransType>D</tns:CustTransType><tns:CustomerID>cust_123</tns:CustomerID><tns:CustomerName>LAST
         NAME, FIRST NAME</tns:CustomerName><tns:CustomerRoutingNo>123456789</tns:CustomerRoutingNo><tns:CustomerAcctNo>acc_123</tns:CustomerAcctNo><tns:CustomerAcctType>S</tns:CustomerAcctType><tns:TransAmount>0.12345E3</tns:TransAmount><tns:CheckOrCustID>cust_123</tns:CheckOrCustID><tns:CheckOrTransDate>2014-07-17</tns:CheckOrTransDate><tns:EffectiveDate>2014-07-17</tns:EffectiveDate><tns:Memo>foo
         bar</tns:Memo><tns:OpCode>S</tns:OpCode><tns:AccountSet>1</tns:AccountSet></tns:ACHTransRecord></tns:ACHRecords></tns:InpACHFile></tns:SendACHTransBatch></env:Body></env:Envelope>
     headers:
@@ -20,7 +18,7 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '2535'
+      - '2523'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -33,7 +31,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 Jul 2014 15:16:09 GMT
+      - Mon, 21 Jul 2014 17:33:43 GMT
       Server:
       - Apache
       X-Aspnet-Version:
@@ -41,7 +39,7 @@ http_interactions:
       Cache-Control:
       - private, max-age=0
       Content-Length:
-      - '785'
+      - '784'
       Content-Type:
       - text/xml; charset=utf-8
     body:
@@ -49,8 +47,8 @@ http_interactions:
       string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><SendACHTransBatchResponse
         xmlns="http://achworks.com/"><SendACHTransBatchResult><SSS>TST</SSS><LocID>9505</LocID><Status>SUCCESS</Status><Details>Transaction
-        records received and queued on 07/21/2014 08:16:09 AM Pacific Time [ACHFileName=TST9505-14072101.XML].
-        Server Processing Time:&lt;0.0001 ms</Details><CallMethod>SendACHTransBatch</CallMethod><CallDateTime>2014-07-21T08:16:09.54925-07:00</CallDateTime><FileName>TST9505-14072101.XML</FileName><TotalNumErrors>0</TotalNumErrors></SendACHTransBatchResult></SendACHTransBatchResponse></soap:Body></soap:Envelope>
+        records received and queued on 07/21/2014 10:33:43 AM Pacific Time [ACHFileName=TST9505-14072102.XML].
+        Server Processing Time:&lt;0.0001 ms</Details><CallMethod>SendACHTransBatch</CallMethod><CallDateTime>2014-07-21T10:33:43.8305-07:00</CallDateTime><FileName>TST9505-14072102.XML</FileName><TotalNumErrors>0</TotalNumErrors></SendACHTransBatchResult></SendACHTransBatchResponse></soap:Body></soap:Envelope>
     http_version: 
-  recorded_at: Mon, 21 Jul 2014 15:16:09 GMT
+  recorded_at: Mon, 21 Jul 2014 17:33:43 GMT
 recorded_with: VCR 2.9.2
