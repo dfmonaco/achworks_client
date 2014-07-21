@@ -42,7 +42,8 @@ module AchworksClient
     end
 
     def front_end_trace
-      'some unique string'
+      unique_value = SecureRandom.hex(4)
+      @front_end_trace ||= "#{unique_value}#{loc_id}"
     end
 
     def transaction_code
