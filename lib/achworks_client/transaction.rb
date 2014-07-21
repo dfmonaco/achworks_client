@@ -9,6 +9,7 @@ module AchworksClient
     attribute :transaction_code, String, default: 'PPD'
     attribute :check_or_trans_date, Date, default: Date.today
     attribute :effective_date, Date, default: Date.today
+    attribute :memo, String
 
     def_delegators :company, :sss, :loc_id
     def_delegator :company, :name, :originator_name
@@ -47,10 +48,6 @@ module AchworksClient
     def front_end_trace
       unique_value = SecureRandom.hex(4)
       @front_end_trace ||= "#{unique_value}#{loc_id}"
-    end
-
-    def memo
-      'foo bar'
     end
 
     def op_code

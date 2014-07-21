@@ -17,7 +17,8 @@ module AchworksClient
 
         transaction = Credit.new(company: company,
                                  customer: customer,
-                                 amount: 100.25)
+                                 amount: 100.25,
+                                 memo: 'foo bar')
 
         expected_hash = { 'ACHTransRecord' =>
                           {'SSS' => 'TST',
@@ -127,6 +128,14 @@ module AchworksClient
         effective_date = Transaction.new(effective_date: date).effective_date
 
         expect(effective_date).to eq(date)
+      end
+    end
+
+    describe '#memo' do
+      it 'can be set to a 10 character string' do
+        memo = Transaction.new(memo: 'this is a memo').memo
+
+        expect(memo).to eq('this is a memo')
       end
     end
 
