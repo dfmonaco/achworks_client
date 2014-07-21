@@ -33,8 +33,8 @@ module AchworksClient
                            'CustomerAcctType' => 'S',
                            'TransAmount' => 100.25,
                            'CheckOrCustID' => 'cust_123',
-                           'CheckOrTransDate' => Date.parse('2014-07-17'),
-                           'EffectiveDate' => Date.parse('2014-07-17'),
+                           'CheckOrTransDate' => Date.today,
+                           'EffectiveDate' => Date.today,
                            'Memo' => 'foo bar',
                            'OpCode' => 'S',
                            'AccountSet' => 1 }
@@ -97,6 +97,36 @@ module AchworksClient
         code = trans.transaction_code
 
         expect(code).to eq('CCD')
+      end
+    end
+
+    describe '#check_or_trans_date' do
+      it 'defaults to the date of the transaction' do
+        trans_date = Transaction.new.check_or_trans_date
+
+        expect(trans_date).to eq(Date.today)
+      end
+
+      it 'can be set to other value' do
+        date = Date.parse('2014-07-15')
+        trans_date = Transaction.new(check_or_trans_date: date).check_or_trans_date
+
+        expect(trans_date).to eq(date)
+      end
+    end
+
+    describe '#effective_date' do
+      it 'defaults to the date of the transaction' do
+        effective_date = Transaction.new.effective_date
+
+        expect(effective_date).to eq(Date.today)
+      end
+
+      it 'can be set to other value' do
+        date = Date.parse('2014-07-15')
+        effective_date = Transaction.new(effective_date: date).effective_date
+
+        expect(effective_date).to eq(date)
       end
     end
 

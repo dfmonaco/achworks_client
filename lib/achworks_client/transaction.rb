@@ -7,6 +7,8 @@ module AchworksClient
     attribute :customer, Customer
     attribute :amount, BigDecimal
     attribute :transaction_code, String, default: 'PPD'
+    attribute :check_or_trans_date, Date, default: Date.today
+    attribute :effective_date, Date, default: Date.today
 
     def_delegators :company, :sss, :loc_id
     def_delegator :company, :name, :originator_name
@@ -45,14 +47,6 @@ module AchworksClient
     def front_end_trace
       unique_value = SecureRandom.hex(4)
       @front_end_trace ||= "#{unique_value}#{loc_id}"
-    end
-
-    def check_or_trans_date
-      Date.parse('2014-07-17')
-    end
-
-    def effective_date
-      Date.parse('2014-07-17')
     end
 
     def memo
