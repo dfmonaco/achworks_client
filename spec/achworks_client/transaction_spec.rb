@@ -139,6 +139,21 @@ module AchworksClient
       end
     end
 
+    describe '#op_code' do
+      it 'defaults to S' do
+        op_code = Transaction.new.op_code
+
+        expect(op_code).to eq('S')
+      end
+
+      it 'can be set to other value' do
+        trans = Transaction.new(op_code: 'R')
+
+        op_code = trans.op_code
+
+        expect(op_code).to eq('R')
+      end
+    end
 
   end
 end

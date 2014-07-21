@@ -10,6 +10,7 @@ module AchworksClient
     attribute :check_or_trans_date, Date, default: Date.today
     attribute :effective_date, Date, default: Date.today
     attribute :memo, String
+    attribute :op_code, String, default: 'S'
 
     def_delegators :company, :sss, :loc_id
     def_delegator :company, :name, :originator_name
@@ -48,10 +49,6 @@ module AchworksClient
     def front_end_trace
       unique_value = SecureRandom.hex(4)
       @front_end_trace ||= "#{unique_value}#{loc_id}"
-    end
-
-    def op_code
-      'S'
     end
 
     def account_set
