@@ -155,5 +155,21 @@ module AchworksClient
       end
     end
 
+    describe '#account_set' do
+      it 'defaults to 1' do
+        account_set = Transaction.new.account_set
+
+        expect(account_set).to eq(1)
+      end
+
+      it 'can be set to other value' do
+        trans = Transaction.new(account_set: 2)
+
+        account_set = trans.account_set
+
+        expect(account_set).to eq(2)
+      end
+    end
+
   end
 end

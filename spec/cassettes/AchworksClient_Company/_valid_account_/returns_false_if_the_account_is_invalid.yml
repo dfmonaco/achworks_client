@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 Jul 2014 18:41:00 GMT
+      - Mon, 21 Jul 2014 18:59:00 GMT
       Server:
       - Apache
       X-Aspnet-Version:
@@ -44,5 +44,5 @@ http_interactions:
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><ConnectionCheckResponse
         xmlns="http://achworks.com/"><ConnectionCheckResult>REJECTED:Invalid Account</ConnectionCheckResult></ConnectionCheckResponse></soap:Body></soap:Envelope>
     http_version: 
-  recorded_at: Mon, 21 Jul 2014 18:41:00 GMT
+  recorded_at: Mon, 21 Jul 2014 18:59:00 GMT
 recorded_with: VCR 2.9.2
